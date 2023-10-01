@@ -1,0 +1,22 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 header-logo">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Replace">
+            </div>
+            <div class="col-md-8 center">
+                <ul class="header-nav">
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Templates</a></li>
+                    <li><a href="">Pricing</a></li>
+                    <li><a href="">Enterprise</a></li>
+                    <li><a href="">Suport</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 access-buttons">
+                <a href="{{ url_for('login') }}" class="btn btn-login">Log in</a>
+                <a href="{{ url_for('register') }}" class="btn btn-signup">Sign up</a>
+            </div>
+        </div>
+    </div>
+</header>
