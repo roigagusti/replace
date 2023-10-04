@@ -21,7 +21,13 @@ Content table
     --link: #000000;
     --fail: #a00000;
     --success: #34c38f;
-}
+    --main:#FF9671;
+    --secondary:#E57B89;
+    --third:#B56D97;
+    --forth:#7D6592;
+    --fifth:#4B597A;
+    --sixth:#2F4858;
+  }
 
 /* ----- 1. Fonts ----- */
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,300,400,500);
@@ -216,16 +222,17 @@ select, input[type="text"],input[type="email"],input[type="password"]{
     font-family: 'Segoe UI', 'Roboto','Helvetica','Myriad Set Pro','Lucida Grande','Helvetica Neue','Helvetica','Arial','Verdana',serif;
     width: 100%;
 }
+/* #ff9671, #fc9076, #f88a7b, #f4857f, #ee8084, #e87c88, #e2798b, #db768e, #d27391, #c97194, #bf6f96, #b56d97 */
 .btn-border{
     background: 
         linear-gradient(#fff, #fff) padding-box,
-        linear-gradient(60deg, #ff9671, #fc9076, #f88a7b, #f4857f, #ee8084, #e87c88, #e2798b, #db768e, #d27391, #c97194, #bf6f96, #b56d97) border-box;
+        linear-gradient(60deg, var(--main), var(--secondary)) border-box;
     border:2px solid transparent;
     color: #333;
 }
 .btn-fill{
     background: 
-        linear-gradient(60deg, #ff9671, #fc9076, #f88a7b, #f4857f, #ee8084, #e87c88, #e2798b, #db768e, #d27391, #c97194, #bf6f96, #b56d97) border-box;
+        linear-gradient(60deg, var(--main), var(--secondary)) border-box;
     border:none;
     color: #fff;
 }
@@ -282,7 +289,7 @@ select, input[type="text"],input[type="email"],input[type="password"]{
     width: 50%;
     height: 100vh;
     background:#ff9671;
-    background-image: linear-gradient(to right top, #ff9671, #fc9076, #f88a7b, #f4857f, #ee8084, #e87c88, #e2798b, #db768e, #d27391, #c97194, #bf6f96, #b56d97);
+    background-image: linear-gradient(to right top, var(--main), var(--secondary));
 }
 .franja-left{
     width: 100%;

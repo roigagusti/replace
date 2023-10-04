@@ -34,6 +34,8 @@ Content table
   --forth:#7D6592;
   --fifth:#4B597A;
   --sixth:#2F4858;
+  --success-main:#00C9A7;
+  --success-secondary:#00949C;
 }
 
 html {height:100%} 
@@ -88,7 +90,7 @@ h2 span{
 }
 .main-color{
   font-weight: 700;
-  background: linear-gradient(60deg, #ff9671, #fc9076, #f88a7b, #f4857f, #ee8084, #e87c88, #e2798b, #db768e, #d27391, #c97194, #bf6f96, #b56d97);
+  background: linear-gradient(60deg, var(--main), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -191,7 +193,7 @@ a.btn-login:hover{
 }
 .btn-signup{
   background: 
-      linear-gradient(60deg, #ff9671, #fc9076, #f88a7b, #f4857f, #ee8084, #e87c88, #e2798b, #db768e, #d27391, #c97194, #bf6f96, #b56d97) border-box;
+      linear-gradient(60deg, var(--main), var(--secondary)) border-box;
   border:1px solid transparent;
   color: #fff;
 }
@@ -306,6 +308,12 @@ a.btn-black:hover, button.btn-black:hover{
       linear-gradient(60deg, var(--main), var(--secondary)) border-box;
   border:none;
   color: #fff;
+}
+.success-region{
+  margin-top: 20px;
+}
+.success-box{
+  display: block;
 }
 /* SOLUTIONS */
 #solutions .title{
