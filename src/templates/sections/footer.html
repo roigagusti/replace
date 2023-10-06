@@ -3,15 +3,15 @@
 		<div class="row">
 			<div class="col-md-3">
 				<ul class="footerList">
-					<li><a href="#"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Replace"></li>
-					<li><a href=""><i class="uil uil-location-arrow"></i> Spain</a></li>
-					<li><a href=""><i class="uil uil-comment"></i> English</a></li>
+					<li><a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Replace"></li>
+					<li><i class="uil uil-location-arrow"></i> Spain</li>
+					<li><i class="uil uil-comment"></i> English</li>
 				</ul>
 			</div>
 			<div class="col-md-3">
 				<ul class="footerList">
 					<li class="footerTitle">FIND US AT</li>
-					<li>Passeig de Sant Joan 144</li>
+					<li>Carrer Mallorca 319</li>
 					<li>08037 Barcelona</li>
 					<li>
 						<a href='mailto:hola&#64;replace.com'>Contact us</a></li>
@@ -20,8 +20,8 @@
 			<div class="col-md-3">
 				<ul class="footerList">
 					<li class="footerTitle">ABOUT US</li>
-					<li><a href="#">Solutions</a></li>
-					<li><a href="#">Pricing</a></li>
+					<li><a href="#solutions">Solutions</a></li>
+					<li><a href="#pricing">Pricing</a></li>
 					<li><a href="{{ url_for('login') }}">Log in</a></li>
 					<li><a href="{{ url_for('register') }}">Sign up</a></li>
 				</ul>
@@ -29,9 +29,9 @@
 			<div class="col-md-3">
 				<ul class="footerList">
 					<li class="footerTitle">LEGAL</li>
-					<li><a href="#">Terms of use</a></li>
-					<li><a href="#">Privacy policy</a></li>
-					<li><a href="#">Cookies policy</a></li>
+					<li><a href="{{ url_for('legal', page='terms-of-use') }}">Terms of use</a></li>
+					<li><a href="{{ url_for('legal', page='privacy-policy') }}">Privacy policy</a></li>
+					<li><a href="{{ url_for('legal', page='cookies-policy') }}">Cookies policy</a></li>
 				</ul>
 			</div>
 		</div>

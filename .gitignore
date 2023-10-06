@@ -1,0 +1,4 @@
+src/__pycache__/
+src/env/
+src/static/export/
+srt/static/import/
