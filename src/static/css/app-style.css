@@ -1,0 +1,189 @@
+/*
+* Title: Style
+* Author: Aldasoro
+* Template: Aldasoro
+* Version: 1.0
+* Copyright 2021 Aldasoro Inc.
+* Url: https://www.aldasoro.ml
+
+
+Content table
+--------------
+0. Center
+1. Sidebar
+2. Index
+3. Configuració
+
+
+/* ----- 0. Basics ----- */
+.center{
+    text-align: center !important;
+}
+.right{
+    text-align: right !important;
+}
+.left{
+    text-align: left !important;
+}
+
+/* ----- 1. Sidebar ----- */
+#sidebar-menu svg{
+    fill:#7b8190;
+    height:13px;
+}
+
+/* ----- 2. Index ----- */
+.card-body > .full-icon{
+    padding-top: 180px;
+    padding-bottom: 200px;
+}
+.full-icon > .nav-icon{
+    fill:#ccc;
+    position: relative;
+    width: auto;
+    margin-right: 0;
+    margin-bottom: 10px;
+    top: 0;
+}
+.full-icon h1{
+    font-size: 18px;
+    color: #495057;
+    font-weight: 500;
+    margin: 0;
+}
+.full-icon h2{
+    font-size: 14px;
+    color: #666;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+
+/* ----- 3. Configuració ----- */
+.dadesConfig{
+    padding-left:0;
+    list-style:none;
+}
+.dadesTitles{
+    color:#999;
+    display:inline-block;
+
+    max-width:40%;
+    position:relative;
+    width:100%;
+    padding-right:10px;
+    padding-left:10px;
+}
+.dadesFacturacio{
+    max-width:60%;
+    position:relative;
+    width:100%;
+    padding-right:10px;
+    padding-left:10px;
+}
+.planTitle{
+    width:100%;
+    text-align:center;
+}
+.planTitle i{
+    font-size:25px;
+}
+.plansSuscripcio>.plan{
+    border: #dcdcdc 1px solid;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.plansSuscripcio>.plan.active{
+    border: #bd574e 1px solid;
+}
+.plansSuscripcio>.plan a{
+    color:#333;
+}
+.panellBilling{
+    margin-top:30px;
+}
+#name,#card_number,#card_expiry,#card_cvc{
+    width:100%;
+    border:none;
+    font-weight:400;
+    font-family:'Roboto', Open Sans, Segoe UI, sans-serif;
+    font-size:16px;
+    color: #555;
+}
+.notificacio{
+    position:absolute;
+    z-index:99999;
+    right: 20px;
+}
+
+/* ----- 4. Switch ----- */
+.label {
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+  }
+  .switch,
+  .input:checked + .label .left,
+  .input:not(:checked) + .label .right {
+    pointer-events: all;
+    cursor: pointer;
+  }
+  .input {
+    display: none;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bd574e;
+    -webkit-transition: 0.15s ease-in-out;
+    transition: 0.15s ease-in-out;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 2.5px;
+    background-color: white;
+    -webkit-transition: 0.15s ease-in-out;
+    transition: 0.15s ease-in-out;
+  }
+  input:checked + .label .slider {
+    background-color: #bd574e;
+  }
+  input:focus + .label .slider {
+    box-shadow: 0 0 1px #bd574e;
+  }
+  input:checked + .label .slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+  }
+  .slider.round {
+    border-radius: 20px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .left, .right {
+    margin: 0 .5em;
+  }
+
+/* ----- 5. WebApp ----- */
+.webApp-offset{
+  padding-top:40px;
+}

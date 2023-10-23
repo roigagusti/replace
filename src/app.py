@@ -26,10 +26,11 @@ def prova():
     return render_template("prova.html")
 
 # ----- PRODUCCIÓ ----- #
+# SITE #
 @app.route('/')
 def index():
     token = dm.token
-    return render_template("index.html",token=token)
+    return render_template("www/index.html",token=token)
 
 @app.route('/demo/<token>', methods=['GET', 'POST'])
 def demo(token):
@@ -49,7 +50,24 @@ def demo(token):
 @app.route('/legal/<page>', methods=['GET', 'POST'])
 def legal(page):
     lg = Legal(page)
-    return render_template("legal.html",title=lg.title,date=lg.date,text=lg.text)
+    return render_template("www/legal.html",title=lg.title,date=lg.date,text=lg.text)
+ 
+# APP #
+@app.route('/app/', methods=['GET', 'POST'])
+def app_index():
+    return redirect(url_for('app_templates'))
+
+@app.route('/app/templates', methods=['GET', 'POST'])
+def app_templates():
+    return render_template("app/templates.html")
+
+@app.route('/app/templates/<code>', methods=['GET', 'POST'])
+def app_templates_detail(code):
+    return render_template("app/template-detail.html",code=code)
+
+@app.route('/app/variables', methods=['GET', 'POST'])
+def app_variables():
+    return render_template("app/variables.html")
     
 
 
@@ -57,15 +75,19 @@ def legal(page):
 # Login Stuff
 @app.route("/login")
 def login():
-    return render_template("login.html")
+    return render_template("app/login.html")
 
 @app.route("/forgot")
 def forgot():
-    return render_template("forgot.html")
+    return render_template("app/forgot.html")
 
 @app.route("/register")
 def register():
-    return render_template("register.html")
+    return render_template("app/register.html")
+
+@app.route("/logout")
+def logout():
+    return "Fora"
 
 
 # Ejecuta la aplicación si este archivo es el punto de entrada

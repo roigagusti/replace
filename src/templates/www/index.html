@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta data -->
+    {% include 'www/sections/metadata.html' %}
+
+    <!-- Títol i Favicons -->
+    <title>Replace: Automate your documents</title>
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="//www.mesural.com/lib/bootstrap/bootstrap.css">
+    <link href="//app.cuantime.es/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- CSS Custom -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}" media="screen">
+
+    <!-- Scripts Libraries -->
+    <!-- Scripts custom -->
+</head>
+
+<body>
+{% include 'www/sections/header.html' %}
+  <!-- Contingut de pàgina -->
+  <div class="container">
+    <!-- Primera secció: presentació -->
+    <section id="example">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="example-box">
+            Get things done<br>
+            while you relax
+          </div>
+        </div>
+        <div class="col-md-6 example-copy">
+          <span class="title">Work smarter,<br>
+          not harder</span>
+          Join the automation revolution, maximize your productivity effortlessly, achieve more in less time.
+          <a href="{{ url_for('register') }}" class="btn btn-black">Get started, it's free</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Segona secció: demo -->
+    <section id="demo">
+      <div class="title">How does it work</div>
+      <div class="subtitle">Add as many variables as you have in your file</div>
+      <form method="post" action="demo/{{ token }}" enctype="multipart/form-data">
+        <input type="file" accept=".doc,.docx" class="form-control hidden" name="wordfile" id="fileinput">
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="pairs-container" id="replace-variables">
+              <div class="replace-pair">
+                <input type="text" class="form-control input-replace" placeholder="*variable*" name="r_variable001">
+                <input type="text" class="form-control input-with" placeholder="new content" name="w_variable001">
+              </div>
+              <div class="replace-pair">
+                <input type="text" class="form-control input-replace" placeholder="*variable*" name="r_variable002">
+                <input type="text" class="form-control input-with" placeholder="new content" name="w_variable002">
+              </div>
+              <div class="replace-pair">
+                <input type="text" class="form-control input-replace" placeholder="*variable*" name="r_variable003">
+                <input type="text" class="form-control input-with" placeholder="new content" name="w_variable003">
+              </div>
+            </div>
+            <div class="add-pair-button">
+              <a class="add-pair" onclick="addPair(this)" value="4">+</a>
+            </div>
+
+            <!-- <div class="success-region">
+              <div class="success-box">
+                <svg></svg>
+                Your document is the fruit of our teamwork
+                <a href="#">Download it</a>
+              </div>
+            </div> -->
+          </div>
+          <div class="col-md-4">
+            <div class="demo-box file-upload-wrapper" id="drop-area">
+              Drop a word<br>file here
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 submit-replace">
+            {{code}}
+            <button class="btn btn-black" type="submit">Replace</button>
+          </div>
+        </div>
+      </form>      
+    </section>
+    
+    <!-- Tercera secció: solucions -->
+    <section id="solutions">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title">Do it all with replace</div>
+          <div class="subtitle">Whatever your goal, start with your own template</div>
+          {% include 'www/sections/solutions.html' %}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Última secció: pricing -->
+    <section id="pricing">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title">Focus on what truly matters</div>
+          <div class="subtitle">Our free plan lets you:</div>
+          <ul>
+            <li>Create unlimited replacements</li>
+            <li>Start getting automations</li>
+            <li>Download your documents</li>
+          </ul>
+          <a href="{{ url_for('register') }}" class="btn btn-black">Sign up</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+{% include 'www/sections/footer.html' %}
+
+
+<!-- JavaScripts basics -->
+<!-- JavaScripts custom -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+<!-- Scripts custom -->
+<script>
+var dropArea = document.getElementById('drop-area');
+var fileInput = document.getElementById('fileinput');
+
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+	dropArea.addEventListener(eventName, preventDefaults, false);
+});
+function preventDefaults(e) {
+	e.preventDefault();
+	e.stopPropagation();
+}
+['dragenter', 'dragover'].forEach(eventName => {
+	dropArea.addEventListener(eventName, highlight, false);
+});
+['dragleave', 'drop'].forEach(eventName => {
+	dropArea.addEventListener(eventName, unhighlight, false);
+});
+function highlight() {
+	dropArea.classList.add('highlight');
+}
+function unhighlight() {
+	dropArea.classList.remove('highlight');
+}
+dropArea.addEventListener('click', function() {
+	fileInput.click();
+});
+dropArea.addEventListener('drop', handleDrop, false);
+function handleDrop(e) {
+	var file = e.dataTransfer.files[0];
+	fileInput.files = e.dataTransfer.files;
+	console.log(file.name);
+	var dropArea = document.getElementById("drop-area");
+	if (file.name.length > 20) {
+	text = file.name.substring(0, 15) + "...";
+	}else{
+	text = file.name;
+	}
+	dropArea.innerText = text;
+}
+fileInput.addEventListener('change', handleFiles, false);
+function handleFiles(e) {
+	var files = e.target.files;
+	for (var i = 0; i < files.length; i++) {
+		var file = files[i];
+		console.log(file.name);
+		var dropArea = document.getElementById("drop-area");
+		if (file.name.length > 20) {
+		text = file.name.substring(0, 15) + "...";
+		}else{
+		text = file.name;
+		}
+		dropArea.innerText = text;
+	}
+}
+$("#fileinput").change(function(){
+	var inputHiddenValue = $(this).val();
+	inputHiddenValue = inputHiddenValue.split('\\').pop();
+	$("#drop-area").html(inputHiddenValue);
+});
+</script>
+</body>
+</html>

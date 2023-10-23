@@ -3,6 +3,7 @@ import datetime
 import re
 from flask import make_response
 from docx import Document
+# from preview_generator.manager import PreviewManager
 
 
 # CLASSES
@@ -37,6 +38,12 @@ def sha256(value):
     sha256_hash = hashlib.sha256(value.encode()).hexdigest()
     return sha256_hash
 
+def create_thumbnail(file):
+    cache_path = '/tmp/preview_cache'
+    manager = PreviewManager(cache_path, create_folder= True)
+    path_to_preview_image = manager.get_jpeg_preview(file)
+    return path_to_preview_image
+
 def multiple_replace(file, replacements):
     doc = Document(file)
     print(replacements)
@@ -56,6 +63,8 @@ def replace(replacements,file_name):
     temp_name = 'output.docx'
     export_path = 'static/export/' + temp_name
     template = file_path + file_name
+    preview = create_thumbnail(template)
+    print(preview)
 
     file = multiple_replace(template,replacements)
     file.save(export_path)

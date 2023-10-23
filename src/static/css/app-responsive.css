@@ -1,0 +1,74 @@
+/*
+* Title: Responsive
+* Author: Aldasoro
+* Template: Aldasoro
+* Version: 1.0
+* Copyright 2021 Aldasoro Inc.
+* Url: https://www.aldasoro.ml
+
+
+Content table
+--------------
+1. Devices < width: 1199px
+2. Devices < width: 1060px
+3. Devices < width: 991px
+4. Devices < width: 767px
+5. Devices < width: 460px
+6. Responsive menu
+
+/* ----- Base ----- */
+.responsive-blur{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 11;
+	top: 0;
+	background: #fff;
+	background: rgba(247,250,252,0.85);
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+}
+/* ----- Devices < width: 1492px ----- */
+@media (max-width: 1492px) {
+	.dadesFactura{
+		width: 100% !important;
+	}
+}
+/* ----- Devices < width: 991px ----- */
+@media (max-width: 991px) {
+	.menuChevron{
+		display: none !important;
+	}
+	.analytics-page>.offset-2{
+		margin-left:0!important;
+	}
+
+}
+
+/* ----- Devices < width: 770px ----- */
+@media (max-width: 767px) {
+	.plansSuscripcio>.offset-1{
+		margin-left:0!important;
+	}
+}
+
+/* ----- Devices < width: 714px ----- */
+@media (max-width: 714px) {
+	.fullFactura{
+		display:none;
+	}
+	.avisNoFactura{
+		display:initial;
+	}
+}
+
+/* ----- Devices < width: 468px ----- */
+@media (max-width: 468px) {
+	.month-count{
+		text-align: center;
+		margin-bottom:20px;
+	}
+	.add-fitxatge{
+		text-align: center;
+	}
+}

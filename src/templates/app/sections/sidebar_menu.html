@@ -1,0 +1,50 @@
+<div class="vertical-menu">
+    <!-- Logo -->
+    <div class="navbar-brand-box">
+        <a href="{{ url_for('app_index') }}" class="logo logo-dark">
+            <span class="logo-sm">
+                <img src="{{ url_for('static', filename='img/mini-logo.png') }}" alt="" style="height:40px;margin-left:5px">
+            </span>
+            <span class="logo-lg">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" style="height:35px;">
+            </span>
+        </a>
+
+        <a href="{{ url_for('app_index') }}" class="logo logo-light">
+            <span class="logo-sm">
+                <img src="{{ url_for('static', filename='img/mini-logo.png') }}" alt="" style="height:40px;margin-left:5px">
+            </span>
+            <span class="logo-lg">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" style="height:35px;">
+            </span>
+        </a>
+    </div>
+
+    <button type="button" class="btn btn-sm px-3 font-size-16 header-item vertical-menu-btn" style="color:#ccc">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div data-simplebar class="sidebar-menu-scroll">
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li class="menu-title">Menu</li>
+                <li>
+                    <a href="{{ url_for('app_templates') }}">
+                        <!-- <svg class="nav-icon" height="24" viewBox="0 0 384 512">
+                            <path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/>
+                        </svg> -->
+                        <i class="uil-file-blank"></i>
+                        <span>Templates</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('app_variables') }}">
+                        <i class="uil-capsule"></i>
+                        <span>Variables</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
